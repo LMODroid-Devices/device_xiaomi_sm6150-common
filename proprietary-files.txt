@@ -1,4 +1,4 @@
-# These proprietary files are extracted from Redmi Note 12 Pro 4G (codenamed `sweet_k6a`) OS1.0.3.0.THGMIXM, unless pinned
+# These proprietary files are extracted from Redmi Note 12 Pro 4G (codenamed `sweet_k6a`) OS1.0.5.0.THGMIXM, unless pinned
 
 # ADSP
 -vendor/bin/adsprpcd
@@ -196,10 +196,10 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 
 # Graphics
 -vendor/lib/egl/eglSubDriverAndroid.so
--vendor/lib/egl/libEGL_adreno.so
+-vendor/lib/egl/libEGL_adreno.so;SYMLINK=vendor/lib/libEGL_adreno.so
 -vendor/lib/egl/libGLESv1_CM_adreno.so
--vendor/lib/egl/libGLESv2_adreno.so
--vendor/lib/egl/libq3dtools_adreno.so
+-vendor/lib/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib/libGLESv2_adreno.so
+-vendor/lib/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib/libq3dtools_adreno.so
 -vendor/lib/egl/libq3dtools_esx.so
 -vendor/lib/hw/vulkan.adreno.so
 -vendor/lib/libC2D2.so
@@ -211,10 +211,10 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 -vendor/lib/libllvm-glnext.so
 -vendor/lib/libllvm-qcom.so
 -vendor/lib64/egl/eglSubDriverAndroid.so
--vendor/lib64/egl/libEGL_adreno.so
+-vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so
 -vendor/lib64/egl/libGLESv1_CM_adreno.so
--vendor/lib64/egl/libGLESv2_adreno.so
--vendor/lib64/egl/libq3dtools_adreno.so
+-vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so
+-vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
 -vendor/lib64/egl/libq3dtools_esx.so
 -vendor/lib64/hw/vulkan.adreno.so
 -vendor/lib64/libC2D2.so
@@ -269,12 +269,12 @@ vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 -system_ext/lib64/lib-imsvtextutils.so
 -system_ext/lib64/lib-imsvtutils.so
 -system_ext/lib64/libdiag_system.so
--system_ext/lib64/libimscamera_jni.so
--system_ext/lib64/libimsmedia_jni.so
+-system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimscamera_jni.so
+-system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 -system_ext/lib64/vendor.qti.diaghal@1.0.so
 -system_ext/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE=vendor.qti.imsrtpservice@3.0_system_ext
 -system_ext/lib64/vendor.qti.imsrtpservice@3.1.so;MODULE=vendor.qti.imsrtpservice@3.1_system_ext
-system_ext/priv-app/ims/ims.apk|5964afafa029d267cfecc29b85c89e51c946df66
+system_ext/priv-app/ims/ims.apk|a79cc8000a0419e1d4d4664db839bf6cea2eb0b9
 -vendor/bin/ims_rtp_daemon
 -vendor/bin/imsdatadaemon
 -vendor/bin/imsqmidaemon
@@ -498,6 +498,7 @@ vendor/radio/qcril_database/upgrade/37_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/38_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/39_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
+vendor/radio/qcril_database/upgrade/40_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql

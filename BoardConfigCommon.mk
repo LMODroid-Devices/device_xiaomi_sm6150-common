@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
-
 BOARD_VENDOR := xiaomi
 
 COMMON_PATH := device/xiaomi/sm6150-common
@@ -63,8 +61,8 @@ LOC_HIDL_VERSION := 4.0
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(COMMON_PATH)/configs/hidl/xiaomi_framework_compatibility_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
+    hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     vendor/lmodroid/config/device_framework_matrix.xml
 
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/hidl/manifest.xml
@@ -123,9 +121,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
 TARGET_BOARD_PLATFORM := sm6150
-
-# Power
-TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(COMMON_PATH):libperfmgr-ext-xiaomi
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop

@@ -32,6 +32,12 @@ on early-init
     setprop ro.soc.model ${ro.vendor.qti.soc_model}
 
 on init
+    # Goodix fingerprint
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+    chmod 0664 /dev/fortsense_fp
+    chown system system /dev/fortsense_fp
+
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
@@ -64,8 +70,6 @@ on fs
     mkdir /mnt/vendor/persist/camera 0777 root root
 
 on late-fs
-    wait_for_prop hwservicemanager.ready true
-    exec_start wait_for_keymaster
     mount_all --late
 
 on post-fs-data
@@ -75,6 +79,7 @@ on post-fs-data
     mkdir /data/vendor/thermal/config 0771 root system
 
     # Create fingerprint related directory
+    mkdir /data/vendor/fortsense 0770 system system
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
@@ -117,6 +122,10 @@ on boot
     # Create fingerprint related directory
     mkdir /mnt/vendor/persist/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
+
+    # Touchpanel
+    chmod 0664 /sys/devices/virtual/touch/touch_dev/double_tap
+    chown system system /sys/devices/virtual/touch/touch_dev/double_tap
 
 on property:sys.boot_completed=1
     # Set allocstall_threshold to 0
